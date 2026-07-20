@@ -120,10 +120,11 @@ Two layout switches (also available as CLI flags):
   `stacking: { lipHeight: 1.8, mouth: 0.3, chamferClearance: 0.3 }`.
 - `gridfinity: true` (or `--gridfinity`) — **experimental** — builds the
   tray as a Gridfinity module using the gridfinity-build123d package:
-  `BaseEqual` feet that click
-  into Gridfinity baseplates, the spec stacking lip, and an outer footprint
-  of `units x 42 - 0.5` mm. The bins share the interior evenly, walls default
-  to 2.6 mm to back the lip, and interior structure is trimmed 0.35 mm so
+  `BaseEqual` feet that click into Gridfinity baseplates and the spec
+  stacking lip. Bins keep their designed size; the tray rounds up to the
+  smallest 42 mm module that holds them and the slack is absorbed by
+  proportionally wider dividers and side walls (a 6x6-unit layout becomes a
+  5x5 gridfinity module, 209.5 mm). Interior structure is trimmed 0.35 mm so
   stacked modules seat fully. `gridfinity: { magnets: true }` (or
   `--gridfinity --magnets`) adds 6.5 x 2.4 mm magnet pockets to the base
   corners. `gridfinity` implies stacking, so `stackable` is ignored

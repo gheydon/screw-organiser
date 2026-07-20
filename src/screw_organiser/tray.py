@@ -58,9 +58,28 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
     base_h = 0.0
     lip_h = 0.0
     if gridfinity:
+        # Bins keep their designed size (pitch - divider content per unit);
+        # the tray rounds up to the next 42 mm gridfinity module and the
+        # slack is absorbed by proportionally wider dividers and side walls.
+        import math
+
+        unit_x = grid["pitch"] - grid["divider"]
+        unit_y = grid["pitch"] - grid["divider"]
+        need_x = cols * unit_x + (cols - 1) * grid["divider"] + 2 * wall
+        need_y = rows_deep * unit_y + (rows_deep - 1) * grid["divider"] + 2 * wall
+        gx = math.ceil((need_x + 0.5) / 42)
+        gy = math.ceil((need_y + 0.5) / 42)
+        print(f"  gridfinity module: {gx} x {gy} (42 mm units)")
+
         shell, width, depth, base_h, lip_h, corner_r = _gridfinity_shell(
-            cols, rows_deep, tray["height"], gf_opts
+            gx, gy, tray["height"], gf_opts
         )
+        kx = (width - cols * unit_x) / (2 * wall + (cols - 1) * grid["divider"])
+        ky = (depth - rows_deep * unit_y) / (2 * wall + (rows_deep - 1) * grid["divider"])
+        wall_x, div_x = wall * kx, grid["divider"] * kx
+        wall_y, div_y = wall * ky, grid["divider"] * ky
+        pitch_x = unit_x + div_x
+        pitch_y = unit_y + div_y
     else:
         width = wall * 2 + cols * grid["pitch"] - grid["divider"]
         depth = wall * 2 + rows_deep * grid["pitch"] - grid["divider"]
@@ -68,9 +87,9 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
             "cornerRadius", layout.get("tray", {}).get("cornerChamfer", tray["cornerRadius"])
         )
         shell = Pos(width / 2, depth / 2, 0) * prism_centered(width, depth, corner_r, tray["height"])
-
-    pitch_x = (width - 2 * wall + grid["divider"]) / cols if gridfinity else grid["pitch"]
-    pitch_y = (depth - 2 * wall + grid["divider"]) / rows_deep if gridfinity else grid["pitch"]
+        wall_x = wall_y = wall
+        div_x = div_y = grid["divider"]
+        pitch_x = pitch_y = grid["pitch"]
 
     params = {
         "height": base_h + tray["height"],
@@ -100,10 +119,10 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
         for bin_spec in row["bins"]:
             units = bin_spec.get("units", 1)
             cell = {
-                "x": wall + col_start * pitch_x,
-                "y": wall + row_start * pitch_y,
-                "width": units * pitch_x - grid["divider"],
-                "depth": row_deep * pitch_y - grid["divider"],
+                "x": wall_x + col_start * pitch_x,
+                "y": wall_y + row_start * pitch_y,
+                "width": units * pitch_x - div_x,
+                "depth": row_deep * pitch_y - div_y,
                 "shelf": row_shelf,
             }
             mod = bin_registry.load(bin_spec.get("type", bin_defaults["type"]))
@@ -159,7 +178,8 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
     if gridfinity:
         # trim interior structure so stacked feet seat in the lip
         trim = Pos(width / 2, depth / 2, params["height"] - GF_INTERIOR_TRIM) * prism_centered(
-            width - 2 * wall, depth - 2 * wall, max(corner_r - wall, 0.3), 2
+            width - 2 * min(wall_x, wall_y), depth - 2 * min(wall_x, wall_y),
+            max(corner_r - min(wall_x, wall_y), 0.3), 2
         )
         body -= trim
 
