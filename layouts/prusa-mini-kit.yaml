@@ -1,0 +1,44 @@
+# Hardware for the Original Prusa MINI+ kit assembly
+# (help.prusa3d.com manual 1215, rev 1.1 2025-03), aggregated from the
+# per-step parts callouts. Excluded: smooth rods, belts and the 150 mm PTFE
+# tube (too long), zip ties (leave in the bag). Misc holds the one-offs:
+# shaft 5x12, fan spacer + clip, Y-belt-holder hardware.
+name: prusa-mini-kit
+frontText: MINI+ Kit Assembly
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3nS, count: 31 }
+      - { units: 2, label: M3n, count: 19 }
+      - { units: 1, label: M3nN/nE, count: 16 }
+      - { units: 1, label: M2x8, test: true, count: 1 }
+  - bins:
+      - { units: 1, label: M3x4b, test: true, count: 9 }
+      - { units: 2, label: M3x8, test: true, count: 19 }
+      - { units: 1, label: M3x10r, test: M3x10, count: 6 }
+      - { units: 2, label: M3x12, test: true, count: 34 }
+  - bins:
+      - { units: 2, label: M3x20, test: true, count: 22 }
+      - { units: 2, label: M3x25, test: true, count: 6 }
+      - { units: 2, label: M3x30, test: true, count: 4 }
+  - bins:
+      - { units: 2, label: M3x40, test: true, count: 2 }
+      - { units: 2, label: M5x20r, test: M5x20, count: 10 }
+      - { units: 1, label: M5x16r, test: M5x16, count: 2 }
+      - { units: 1, label: Spring 5x15, test: { dia: 5.4, length: 15, head: false }, count: 1 }
+  - bins:
+      - { units: 2, label: LM10LUU, count: 2 }
+      - { units: 1, label: LM8UU, count: 5 }
+      - { units: 1, label: 608Z, count: 4 }
+      - { units: 1, label: 623/625, count: 5 }
+      - { units: 1, label: Clips, count: 3 }
+  - bins:
+      - { units: 2, label: Heatbed spacers, count: 9 }
+      - { units: 1, label: Pulleys, count: 2 }
+      - { units: 1, label: "Magnet\n+ Ball" }
+      - { units: 1, label: PTFE 15, test: { dia: 4.4, length: 15, head: false }, count: 1 }
+      - { units: 1 }  # unlabelled -> "Misc"
