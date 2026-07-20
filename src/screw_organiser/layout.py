@@ -26,6 +26,7 @@ DEFAULTS: dict[str, dict[str, Any]] = {
     },
     "test": {"clearance": 0.4, "rim": 1.2, "gaugeLength": 10.0},
     "frontText": {"capHeight": 6.0, "depth": 0.3},
+    "versionText": {"capHeight": 6.0, "depth": 0.4},
     "stacking": {"lipHeight": 1.8, "mouth": 0.3, "chamferClearance": 0.3},
 }
 

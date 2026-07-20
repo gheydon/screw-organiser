@@ -71,6 +71,11 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
         gx = math.ceil((need_x + 0.5) / gf_pitch)
         gy = math.ceil((need_y + 0.5) / gf_pitch)
         print(f"  gridfinity module: {gx} x {gy} ({gf_pitch} mm units)")
+        # version stamp goes on the underside of the centre-most foot
+        footprint = gf_pitch - 0.5
+        stamp_cx = ((gx - 1) // 2) * gf_pitch + footprint / 2
+        stamp_cy = ((gy - 1) // 2) * gf_pitch + footprint / 2
+        stamp_w = footprint - 2 * 2.95 - 3  # foot bottom face minus a margin
 
         shell, width, depth, base_h, lip_h, corner_r = _gridfinity_shell(
             gx, gy, tray["height"], gf_opts
@@ -91,6 +96,8 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
         wall_x = wall_y = wall
         div_x = div_y = grid["divider"]
         pitch_x = pitch_y = grid["pitch"]
+        stamp_cx, stamp_cy = width / 2, depth / 2
+        stamp_w = width / 2
 
     params = {
         "height": base_h + tray["height"],
@@ -183,6 +190,23 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
             max(corner_r - min(wall_x, wall_y), 0.3), 2
         )
         body -= trim
+
+    # ---- version stamp -------------------------------------------------
+    # Engraved into the underside (Prusa-style part identification). The
+    # text is mirrored so it reads correctly when the tray is flipped over,
+    # and recessed so the first layer prints flat.
+    if layout.get("version"):
+        spec = layout["version"]
+        spec = {"text": str(spec)} if not isinstance(spec, dict) else spec
+        cfg = merged(DEFAULTS["versionText"], spec)
+        stamp = solid_label(
+            str(spec["text"]),
+            cap_height=cfg["capHeight"],
+            depth=cfg["depth"] + 0.01,
+            max_width=stamp_w,
+            font=labels_cfg["font"],
+        )
+        body -= Pos(stamp_cx, stamp_cy, cfg["depth"]) * Rot(180, 0, 0) * stamp
 
     return Tray(
         name=layout.get("name", "organiser"),

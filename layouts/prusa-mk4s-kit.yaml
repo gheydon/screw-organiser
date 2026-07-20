@@ -7,6 +7,7 @@
 # M3x14bT, thumb screws and odd spacers.
 name: prusa-mk4s-kit
 frontText: MK4S Kit Assembly
+version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }

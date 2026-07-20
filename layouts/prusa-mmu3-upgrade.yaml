@@ -1,5 +1,6 @@
 name: prusa-mmu3-upgrade
 frontText: MMU2S to MMU3 Upgrade MK3S+
+version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }

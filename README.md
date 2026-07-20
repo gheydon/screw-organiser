@@ -78,6 +78,12 @@ A ramped bin (`scoop`/`deep`) with no `label` key is labelled **Misc**; set
 `label: ""` explicitly for a blank ramp. The `open` type has no ramp and is
 always unlabelled.
 
+`version: R1` engraves a Prusa-style identification stamp 0.4 mm into the
+tray's underside (the centre foot in gridfinity mode) — recessed so the
+first layer prints flat, oriented to read when the tray is flipped over.
+Tune with `version: { text: R2, capHeight: 6, depth: 0.4 }`, or override at
+build time with `--version-text R2`.
+
 A bin's `count` records how many pieces belong in it. Counts are not shown
 on labels by default; enable them with the `--counts` flag or persistently
 with `labels: { showCounts: true }`, which renders e.g. `M3x10 (35)`.

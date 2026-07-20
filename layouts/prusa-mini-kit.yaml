@@ -5,6 +5,7 @@
 # shaft 5x12, fan spacer + clip, Y-belt-holder hardware.
 name: prusa-mini-kit
 frontText: MINI+ Kit Assembly
+version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }

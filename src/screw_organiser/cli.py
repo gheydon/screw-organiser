@@ -35,6 +35,8 @@ def main() -> None:
                     help="with --gridfinity: magnet holes in the base")
     ap.add_argument("--half-grid", action="store_true",
                     help="with --gridfinity: 21 mm half-grid base instead of 42 mm")
+    ap.add_argument("--version-text", metavar="TEXT",
+                    help='engrave TEXT into the tray underside (overrides layout "version")')
     ap.add_argument("--out", default="out")
     args = ap.parse_args()
 
@@ -51,6 +53,8 @@ def main() -> None:
     if args.half_grid:
         gf = layout.get("gridfinity")
         layout["gridfinity"] = {**(gf if isinstance(gf, dict) else {}), "half": True}
+    if args.version_text:
+        layout["version"] = args.version_text
 
     t0 = time.time()
     print(f'building "{layout.get("name", "organiser")}" from {args.config} ...')

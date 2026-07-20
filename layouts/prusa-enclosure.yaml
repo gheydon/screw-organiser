@@ -7,6 +7,7 @@
 # O-ring and other one-offs.
 name: prusa-enclosure
 frontText: Enclosure Assembly
+version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
