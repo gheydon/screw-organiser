@@ -1,0 +1,51 @@
+# Hardware for the Original Prusa MK4S kit assembly
+# (help.prusa3d.com manual 2167, rev 1.01 2025-09), aggregated from the
+# per-step parts callouts across all chapters. Also covers most of the
+# MK4->MK4S and MK3S+->MK4S upgrade hardware, which is a subset.
+# Excluded: smooth rods and belts (too long), zip ties (leave in the bag).
+# Misc holds the one-offs: PG-ring, idler-nut, M3x4T grub, set screw M3x25,
+# M3x14bT, thumb screws and odd spacers.
+name: prusa-mk4s-kit
+frontText: MK4S Kit Assembly
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3nS, count: 38 }
+      - { units: 1, label: M3n, count: 14 }
+      - { units: 1, label: M3nN/nEs, count: 9 }
+      - { units: 1, label: Trapez, count: 2 }
+      - { units: 1, label: Spacers }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 1, label: M3x4bT, test: true, count: 8 }
+      - { units: 1, label: M3x5rT, test: true, count: 5 }
+      - { units: 1, label: M3x6, test: true, count: 16 }
+      - { units: 1, label: M3x6r, test: M3x6, count: 8 }
+      - { units: 1, label: 3x8sT, test: true, count: 6 }
+      - { units: 1, label: M3x8, test: true, count: 6 }
+  - bins:
+      - { units: 2, label: M3x10, test: true, count: 69 }
+      - { units: 2, label: M5x16r, test: M5x16, count: 32 }
+      - { units: 1, label: M3x12, test: true, count: 6 }
+      - { units: 1, label: 3x12sT, test: true, count: 4 }
+  - bins:
+      - { units: 1, label: M3x16, test: true, count: 4 }
+      - { units: 1, label: M3x18, test: true, count: 15 }
+      - { units: 1, label: M3x20rT, test: M3x20, count: 2 }
+      - { units: 1, label: M4x10r, test: M4x10, count: 2 }
+      - { units: 2, label: M3x25, test: true, count: 4 }
+  - bins:
+      - { units: 2, label: M3x30, test: true, count: 9 }
+      - { units: 2, label: M3x40, test: true, count: 2 }
+      - { units: 1, label: Spring 15x5, test: { dia: 5.4, length: 15, head: false }, count: 2 }
+      - { units: 1, label: 693 brg, count: 2 }
+  - bins:
+      - { units: 2, label: LM10LUU, count: 2 }
+      - { units: 1, label: LM8UU, count: 6 }
+      - { units: 1, label: Clips, count: 6 }
+      - { units: 1, label: Cable clips, count: 6 }
+      - { units: 1, label: Brg pads, count: 6 }

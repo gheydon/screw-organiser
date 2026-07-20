@@ -1,0 +1,43 @@
+name: prusa-mmu3-upgrade
+frontText: MMU2S to MMU3 Upgrade MK3S+
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, strokeWidth: 0.8, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3n, count: 21 }
+      - { units: 1, label: M3nS, count: 24 }
+      - { units: 1, label: M4x5g, test: { dia: 4.4, length: 5, head: false }, count: 2 }
+      - { units: 1, label: M2x8, test: true, count: 1 }
+      - { units: 1, label: M3 wshr, count: 1 }
+      - { units: 1, label: Trapeze, count: 1 }
+  - bins:
+      - { units: 1, label: M3x6, test: true, count: 28 }
+      - { units: 2, label: M3x10, test: true, count: 35 }
+      - { units: 1, label: M3x14/16b, test: M3x16, count: 3 }
+      - { units: 1, label: M3x18, test: true, count: 3 }
+      - { units: 1, label: M3x20/22b, test: M3x22, count: 1 }
+  - bins:
+      - { units: 3, label: M3x30, test: true, count: 9 }
+      - { units: 2, label: M3x40, test: true, count: 2 }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 2, label: 625 brg, count: 9 }
+      - { units: 1, label: 693 brg, count: 5 }
+      - { units: 1, label: 2.9x8.5, test: { dia: 3.3, length: 8.5, head: false }, count: 5 }
+      - { units: 1, label: 5x16sh, test: { dia: 5.4, length: 16, head: false }, count: 8 }
+      # 4 mm OD x 19 mm PTFE tubes for the pulley body
+      - { units: 1, label: PTFE 19, test: { dia: 4.4, length: 19, head: false }, count: 5 }
+  - bins:
+      - { units: 5, label: 5x120sh shaft, test: { dia: 5.4, length: 120, head: false }, count: 2 }
+      - { units: 1, label: M5-4 fit, count: 2 }
+  # blades stay in their protective case, so no bin for them
+  - bins:
+      - { units: 1, label: "Magnet\n+ Ball" }
+      - { units: 1, label: Bushing, count: 2 }
+      - { units: 1, label: Coupler, count: 1 }
+      - { units: 1, label: Stopper, count: 1 }
+      - { units: 1, label: Spring 15x5, test: { dia: 5.4, length: 15, head: false }, count: 2 }
+      - { units: 1, label: Collet, count: 15 }

@@ -1,0 +1,52 @@
+# Hardware for the Bondtech INDX Conversion kit, Prusa CORE One/+
+# Founders Edition (help.prusa3d.com manual 2397, rev 1.00 2026-07).
+# Counts aggregate the per-step "found in the Fasteners bag" callouts across
+# chapters 3-6 and include screws harvested from the printer for reuse.
+# Zip ties are left in their bag; PTFE tubes (880 mm) don't fit a tray.
+name: prusa-indx-conversion
+frontText: Bondtech INDX Conversion
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3nN, count: 24 }
+      - { units: 1, label: M3nS, count: 7 }
+      - { units: 1, label: M3x4, test: true, count: 2 }
+      - { units: 1, label: M3x4bT, test: true, count: 8 }
+      - { units: 1, label: M3x4rT, test: true, count: 10 }
+      # washer + nylon rivets and any oddments
+      - { units: 1 }
+  - bins:
+      - { units: 1, label: M3x5rT, test: true, count: 4 }
+      - { units: 1, label: M3x8, test: true, count: 2 }
+      - { units: 1, label: M3x8b, test: true, count: 4 }
+      - { units: 2, label: M3x8rT, test: true, count: 32 }
+      - { units: 1, label: M3x10, test: true, count: 10 }
+  - bins:
+      - { units: 1, label: M3x10rT, test: M3x10, count: 1 }
+      - { units: 1, label: M3x12bT, test: M3x12, count: 1 }
+      - { units: 2, label: M3x12cT, test: M3x12, count: 32 }
+      - { units: 2, label: M3x12rT, test: M3x12, count: 22 }
+  - bins:
+      # 3 mm self-tapping screws for the spool holders and docks
+      - { units: 2, label: 3x12sT, test: true, count: 38 }
+      - { units: 1, label: M3x14, test: true, count: 6 }
+      - { units: 1, label: M3x16T, test: M3x16, count: 1 }
+      - { units: 1, label: M3x18, test: true, count: 4 }
+      - { units: 1, label: M3x20rT, test: M3x20, count: 1 }
+  - bins:
+      - { units: 2, label: M3x25, test: true, count: 4 }
+      - { units: 2, label: M3x35, test: true, count: 2 }
+      # tool dock springs 0.5 x 8.5 x 30
+      - { units: 2, label: Spring 30mm, test: { dia: 8.9, length: 30, head: false }, count: 8 }
+  - bins:
+      # tool springs 0.63 x 5 x 15
+      - { units: 1, label: Spring 15mm, test: { dia: 5.4, length: 15, head: false }, count: 18 }
+      - { units: 1, label: Collet, count: 8 }
+      - { units: 1, label: Mag 7x8, count: 8 }
+      - { units: 1, label: Ball 7mm, count: 8 }
+      - { units: 1, label: Mag 3.2x5, count: 4 }
+      - { units: 1, label: O-ring, count: 8 }

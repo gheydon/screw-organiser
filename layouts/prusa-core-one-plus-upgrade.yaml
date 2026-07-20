@@ -1,0 +1,40 @@
+# Hardware for the Prusa CORE One -> CORE One+ upgrade
+# (help.prusa3d.com manual 2338, rev 1.00 2026-07). Counts include screws
+# harvested from the printer for reuse, per the manual's instructions.
+name: prusa-core-one-plus-upgrade
+frontText: CORE One+ Upgrade
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      # filament sensor PCB screw (reused)
+      - { units: 1, label: M2x8, test: true, count: 1 }
+      # print head side cover / Cover-Right-Lever (reused)
+      - { units: 1, label: M3x6, test: true, count: 2 }
+      # filament sensor cover (new)
+      - { units: 1, label: M3x8, test: true, count: 2 }
+      # side panel spool holder -> Puck-universal (reused)
+      - { units: 1, label: M3x8rT, test: true, count: 4 }
+      # sensor door screws + lever screw (harvested)
+      - { units: 1, label: M3x10, test: true, count: 3 }
+  - bins:
+      # handle (2, reused) + top cover vent (3, one goes back in)
+      - { units: 1, label: M3x10rT, test: M3x10, count: 5 }
+      # new longer vent screws for the insulating inserts
+      - { units: 1, label: M3x12rT, test: M3x12, count: 2 }
+      # top cover nuts (hold them while unscrewing the vent)
+      - { units: 1, label: M3nN, count: 3 }
+      - { units: 1, label: M3 wshr, count: 1 }
+      # 10x6x2 magnets (2) + 7mm steel ball, harvested from the old sensor
+      - { units: 1, label: "Magnet\n+ Ball" }
+  - bins:
+      # O-ring 25x3.5 for the new spool holder
+      - { units: 2, label: O-ring 25x3.5, count: 1 }
+      # collet saved from the handle PTFE fitting
+      - { units: 1, label: Collet, count: 1 }
+      # nylon rivets from the top cover
+      - { units: 1, label: Rivets }
+      - { units: 1 }  # unlabelled -> "Misc"

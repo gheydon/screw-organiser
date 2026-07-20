@@ -1,0 +1,41 @@
+name: prusa-core-one
+frontText: PRUSA CORE One Screw Organizer
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, strokeWidth: 0.8, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+binModules: []
+rows:
+  - bins:
+      - { units: 1, label: M3n }
+      - { units: 1, label: M3nS }
+      - { units: 1, label: M3nN }
+      - { units: 1, label: 3x8sT, test: true }
+      - { units: 2, label: Nylon Rivet }
+  - bins:
+      - { units: 1, label: M3x20rT, test: true }
+      - { units: 1, label: M3x4bT, test: true }
+      - { units: 1, label: "M3x12cT\nM3x12bT", test: true }
+      - { units: 1, label: M4x6r, test: true }
+      - { units: 1, label: 6-32(P), test: 3.9 }
+      - { units: 1, label: 2.9x6.5, test: true }
+  - bins:
+      - { units: 2, label: M3x4rT, test: true }
+      - { units: 1, label: M3x5rT, test: true }
+      - { units: 2, label: M3x8rT, test: true }
+      - { units: 1, label: M3x10rT, test: true }
+  - bins:
+      - { units: 2, label: M3x30, test: true }
+      - { units: 2, label: M3x35, test: true }
+      - { units: 1, label: M2x8, test: true }
+      - { units: 1, label: M2.5x10, test: true }
+  - bins:
+      - { units: 1, label: M3x12, test: true }
+      - { units: 3, label: M3x18, test: true }
+      - { units: 2, label: M3x25, test: true }
+  - bins:
+      - { units: 1, label: M3x4, test: true }
+      - { units: 2, label: M3x6, test: true }
+      - { units: 1, label: M3x8, test: true }
+      - { units: 2, label: M3x10, test: true }

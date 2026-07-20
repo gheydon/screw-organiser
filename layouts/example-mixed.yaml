@@ -1,0 +1,16 @@
+name: example-mixed
+frontText: Odds and Ends
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop }
+binModules:
+  - ../examples/round_holes.py
+rows:
+  - bins:
+      - { units: 1, label: M4x10, test: true }
+      - { units: 1, type: deep, label: M4x16, test: true }
+      - { units: 2, type: round-holes, label: Bits, holeDiameter: 8 }
+  - units: 2
+    bins:
+      - { units: 2, type: open }
+      - { units: 2, label: "Grub\nScrews", scoopRadius: 6 }

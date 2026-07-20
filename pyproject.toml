@@ -1,0 +1,26 @@
+[project]
+name = "screw-organiser"
+version = "2.0.0"
+description = "Parametric drawer screw organiser (build123d) with multi-material labels, test gauges and Gridfinity support"
+authors = [
+    { name = "Gordon Heydon", email = "gordon@heydon.com.au" }
+]
+requires-python = ">=3.13"
+license = "GPL-2.0-only"
+license-files = ["LICENSE"]
+dependencies = [
+    # gridfinity-build123d's current revision needs pre-0.11 build123d APIs
+    "build123d>=0.10.0,<0.11",
+    "gridfinity-build123d",
+    "pyyaml>=6.0.3",
+]
+
+[project.scripts]
+screw-organiser = "screw_organiser.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.12.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+gridfinity-build123d = { git = "https://github.com/Ruudjhuu/gridfinity_build123d", rev = "fc29ac6b9ad5b110c582abef78bf0f1153bec6b3" }
