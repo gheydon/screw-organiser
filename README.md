@@ -1,7 +1,9 @@
 # Parametric Screw Organiser
 
-A parametric remake of the Prusa CORE One drawer screw organiser, built with
-Python and [build123d](https://build123d.readthedocs.io/). The whole tray is
+A parametric remix of the
+[PRUSA CORE One screw organizer](https://www.printables.com/model/1324003-prusa-core-one-screw-organizer)
+by ooishoo, built with Python and
+[build123d](https://build123d.readthedocs.io/). The whole tray is
 described by a YAML layout file: rows of bins on a grid, each bin with a
 type, a width in grid units, and a label embossed on its ramp. Labels can be
 split into separate models for multi-material printing, output is STL or
@@ -179,4 +181,8 @@ from its solid fill.
 
 ## License
 
-GPL-2.0 — see [LICENSE](LICENSE).
+CC0 1.0 (public domain) — see [LICENSE](LICENSE).
+
+This project is a remix of the
+[PRUSA CORE One screw organizer](https://www.printables.com/model/1324003-prusa-core-one-screw-organizer)
+by ooishoo, published under the same CC0 1.0 licence.
