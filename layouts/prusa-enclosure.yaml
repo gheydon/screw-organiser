@@ -1,0 +1,45 @@
+# Hardware for the Original Prusa Enclosure assembly
+# (help.prusa3d.com manual 2080, rev 1.1 2026-07), aggregated from the
+# per-step parts callouts. The manual includes optional add-on chapters
+# (MMU support, PSU relocation, etc.), so counts cover the maximal build.
+# Excluded: zip ties (leave in the bag), 1100 mm PTFE tubes, latch rods and
+# printed parts. Misc holds M3x10r x2, 10x6x2 magnets x2, e-clip, blower
+# O-ring and other one-offs.
+name: prusa-enclosure
+frontText: Enclosure Assembly
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3n, count: 111 }
+      - { units: 2, label: M3nS, count: 43 }
+      - { units: 1, label: M3nN, count: 16 }
+      # M3 thumb nuts (8) + M3x8 thumb screws (4)
+      - { units: 1, label: Thumb, count: 12 }
+  - bins:
+      - { units: 2, label: M3x4, test: true, count: 32 }
+      - { units: 1, label: M3x6, test: true, count: 8 }
+      - { units: 2, label: M3x8, test: true, count: 141 }
+      - { units: 1, label: M3x10, test: true, count: 20 }
+  - bins:
+      - { units: 1, label: M3x10r, test: M3x10, count: 2 }
+      - { units: 2, label: M3x12, test: true, count: 93 }
+      - { units: 1, label: M3x18, test: true, count: 12 }
+      - { units: 1, label: M3x20, test: true, count: 9 }
+      # M3w serrated lock washers (8) + plain M3w + e-clip washer
+      - { units: 1, label: Washers, count: 10 }
+  - bins:
+      - { units: 2, label: M4x5r, test: M4x5, count: 53 }
+      - { units: 1, label: M4x10r, test: M4x10, count: 8 }
+      - { units: 1, label: M4x16b, test: M4x16, count: 4 }
+      # QSM-M5 pneumatic fittings for the PTFE passthroughs
+      - { units: 1, label: QSM-M5, count: 4 }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 2, label: Nylon rivets, count: 65 }
+      # door + accessory magnets, listed as 20x6x2 and 2x6x20 in the manual
+      - { units: 2, label: Mag 20x6x2, count: 41 }
+      - { units: 2, label: Spring 4x25, test: { dia: 4.4, length: 25, head: false }, count: 2 }

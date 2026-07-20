@@ -3,8 +3,8 @@
 # Counts aggregate the per-step "found in the Fasteners bag" callouts across
 # chapters 3-6 and include screws harvested from the printer for reuse.
 # Zip ties are left in their bag; PTFE tubes (880 mm) don't fit a tray.
-name: prusa-indx-conversion
-frontText: Bondtech INDX Conversion
+name: prusa-indx-fe-conversion
+frontText: Bondtech INDX FE Conversion
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
