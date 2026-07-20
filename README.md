@@ -125,7 +125,11 @@ Two layout switches (also available as CLI flags):
   smallest 42 mm module that holds them and the slack is absorbed by
   proportionally wider dividers and side walls (a 6x6-unit layout becomes a
   5x5 gridfinity module, 209.5 mm). Interior structure is trimmed 0.35 mm so
-  stacked modules seat fully. `gridfinity: { magnets: true }` (or
+  stacked modules seat fully. `gridfinity: { half: true }` (or `--half-grid`)
+  bases the tray on the 21 mm half grid instead — finer module rounding, so
+  less slack in walls and dividers — by patching the package's hardcoded
+  42 mm pitch; magnet holes don't fit half-grid feet and are skipped.
+  `gridfinity: { magnets: true }` (or
   `--gridfinity --magnets`) adds 6.5 x 2.4 mm magnet pockets to the base
   corners. `gridfinity` implies stacking, so `stackable` is ignored
   alongside it.

@@ -33,6 +33,8 @@ def main() -> None:
                     help="build as a Gridfinity module (via gridfinity_build123d) [experimental]")
     ap.add_argument("--magnets", action="store_true",
                     help="with --gridfinity: magnet holes in the base")
+    ap.add_argument("--half-grid", action="store_true",
+                    help="with --gridfinity: 21 mm half-grid base instead of 42 mm")
     ap.add_argument("--out", default="out")
     args = ap.parse_args()
 
@@ -46,6 +48,9 @@ def main() -> None:
     if args.magnets:
         gf = layout.get("gridfinity")
         layout["gridfinity"] = {**(gf if isinstance(gf, dict) else {}), "magnets": True}
+    if args.half_grid:
+        gf = layout.get("gridfinity")
+        layout["gridfinity"] = {**(gf if isinstance(gf, dict) else {}), "half": True}
 
     t0 = time.time()
     print(f'building "{layout.get("name", "organiser")}" from {args.config} ...')

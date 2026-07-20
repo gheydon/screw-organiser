@@ -63,13 +63,14 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
         # slack is absorbed by proportionally wider dividers and side walls.
         import math
 
+        gf_pitch = 21 if gf_opts.get("half") else 42
         unit_x = grid["pitch"] - grid["divider"]
         unit_y = grid["pitch"] - grid["divider"]
         need_x = cols * unit_x + (cols - 1) * grid["divider"] + 2 * wall
         need_y = rows_deep * unit_y + (rows_deep - 1) * grid["divider"] + 2 * wall
-        gx = math.ceil((need_x + 0.5) / 42)
-        gy = math.ceil((need_y + 0.5) / 42)
-        print(f"  gridfinity module: {gx} x {gy} (42 mm units)")
+        gx = math.ceil((need_x + 0.5) / gf_pitch)
+        gy = math.ceil((need_y + 0.5) / gf_pitch)
+        print(f"  gridfinity module: {gx} x {gy} ({gf_pitch} mm units)")
 
         shell, width, depth, base_h, lip_h, corner_r = _gridfinity_shell(
             gx, gy, tray["height"], gf_opts
@@ -212,14 +213,33 @@ def prism_centered(width: float, depth: float, corner_r: float, height: float) -
 
 
 def _gridfinity_shell(cols: int, rows: int, body_height: float, gf_opts: dict):
-    """Solid gridfinity shell (base + fill + stacking lip) in corner frame."""
+    """Solid gridfinity shell (base + fill + stacking lip) in corner frame.
+
+    With gf_opts["half"], the base is generated on the 21 mm half grid. The
+    package hardcodes the 42 mm pitch as a module constant, so it is patched
+    for the duration of the base build (the foot profile, corner radius and
+    clearance are absolute and unaffected, per the half-grid spec).
+    """
     from gridfinity_build123d import BaseEqual, Bin, BottomCorners, MagnetHole, StackingLip
+    from gridfinity_build123d.constants import gridfinity_standard
 
-    features = [MagnetHole(BottomCorners())] if gf_opts.get("magnets") else []
-    base = BaseEqual(grid_x=cols, grid_y=rows, features=features)
-    base_h = base.bounding_box().size.Z
+    half = bool(gf_opts.get("half"))
+    magnets = bool(gf_opts.get("magnets"))
+    if half and magnets:
+        # 6.5 mm magnet holes 8 mm from each side would overlap on a 21 mm foot
+        print("  note: magnet holes don't fit the 21 mm half grid — skipped")
+        magnets = False
 
-    shell = Bin(base, height=body_height, lip=StackingLip())
+    features = [MagnetHole(BottomCorners())] if magnets else []
+    original_pitch = gridfinity_standard.grid.size
+    gridfinity_standard.grid.size = 21 if half else 42
+    try:
+        base = BaseEqual(grid_x=cols, grid_y=rows, features=features)
+        base_h = base.bounding_box().size.Z
+        shell = Bin(base, height=body_height, lip=StackingLip())
+    finally:
+        gridfinity_standard.grid.size = original_pitch
+
     bb = shell.bounding_box()
     width, depth = bb.size.X, bb.size.Y
     lip_h = bb.size.Z - base_h - body_height
