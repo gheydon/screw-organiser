@@ -4,7 +4,7 @@ version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
 defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
-labels: { capHeight: 3.2, strokeWidth: 0.8, depth: 0.3 }
+labels: { capHeight: 3.2, strokeWidth: 0.8, depth: 0.6 }
 colors: { body: "#FA6831", labels: "#1A1A1A" }
 binModules: []
 rows:

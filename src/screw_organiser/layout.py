@@ -18,11 +18,15 @@ DEFAULTS: dict[str, dict[str, Any]] = {
     "bin": {"type": "scoop", "scoopRadius": 10.0, "rampAngle": 63.435},
     "labels": {
         "capHeight": 3.2,
-        "depth": 0.3,
-        "overlap": 0.1,
+        # 0.6 proud / 0.2 embedded: on the 63deg ramp each printed layer gets
+        # a ~0.9 mm band of label colour (~2 extrusion widths) so glyphs
+        # slice cleanly; 0.3 gave sub-extrusion slivers
+        "depth": 0.6,
+        "overlap": 0.2,
         "lineSpacing": 1.4,
         "showCounts": False,
         "font": "Arial",
+        "bold": True,
     },
     "test": {"clearance": 0.4, "rim": 1.2, "gaugeLength": 10.0},
     "frontText": {"capHeight": 6.0, "depth": 0.3},

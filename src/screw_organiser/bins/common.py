@@ -169,6 +169,7 @@ def ramp_label(cell: dict, bin_spec: dict, params: dict, ramp: dict | None) -> P
         line_spacing=cfg["lineSpacing"],
         max_width=cell["width"] - 3,
         font=cfg["font"],
+        bold=cfg["bold"],
     )
 
     run, angle, back_off = ramp["run"], ramp["angle"], ramp["backOffset"]

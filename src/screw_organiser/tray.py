@@ -159,6 +159,7 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
             depth=cfg["depth"] + labels_cfg["overlap"],
             max_width=width - 2 * corner_r - 6,
             font=labels_cfg["font"],
+            bold=labels_cfg["bold"],
         )
         # centre on the visible face: above the bottom nesting chamfer and
         # including the stacking lip when present
@@ -207,6 +208,7 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
             depth=cfg["depth"] + 0.01,
             max_width=stamp_w,
             font=labels_cfg["font"],
+            bold=labels_cfg["bold"],
         )
         body -= Pos(stamp_cx, stamp_cy, cfg["depth"]) * Rot(180, 0, 0) * stamp
 
