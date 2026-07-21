@@ -17,6 +17,8 @@ BUILDS  := $(filter-out example-%,$(LAYOUTS))
 OUT     := out
 RUN     := uv run screw-organiser
 SRC     := $(shell find src -name '*.py') pyproject.toml
+# extra CLI flags for every build, e.g. make EXTRA="--version-text v1.2"
+EXTRA   ?=
 
 .PHONY: all stl stackable gridfinity everything clean $(LAYOUTS)
 
@@ -34,16 +36,16 @@ everything: all stl stackable gridfinity
 $(LAYOUTS): %: $(OUT)/%.3mf
 
 $(OUT)/%.3mf: layouts/%.yaml $(SRC)
-	$(RUN) --config $< --out $(OUT)
+	$(RUN) --config $< --out $(OUT) $(EXTRA)
 
 $(OUT)/%.stl: layouts/%.yaml $(SRC)
-	$(RUN) --config $< --format stl --out $(OUT)
+	$(RUN) --config $< --format stl --out $(OUT) $(EXTRA)
 
 $(OUT)/stackable/%.3mf: layouts/%.yaml $(SRC)
-	$(RUN) --config $< --stackable --out $(OUT)/stackable
+	$(RUN) --config $< --stackable --out $(OUT)/stackable $(EXTRA)
 
 $(OUT)/gridfinity/%.3mf: layouts/%.yaml $(SRC)
-	$(RUN) --config $< --gridfinity --magnets --out $(OUT)/gridfinity
+	$(RUN) --config $< --gridfinity --magnets --out $(OUT)/gridfinity $(EXTRA)
 
 clean:
 	rm -rf $(OUT)
