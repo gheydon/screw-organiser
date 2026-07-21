@@ -17,9 +17,11 @@ rows:
   - bins:
       - { units: 1, label: M3x6, test: true, count: 28 }
       - { units: 2, label: M3x10, test: true, count: 35 }
-      - { units: 1, label: M3x14/16b, test: M3x16, count: 3 }
+      # hotend side-fan screws (length depends on fan version)
+      - { units: 1, label: "Fan\nM3x14/16b", test: M3x16, count: 3 }
       - { units: 1, label: M3x18, test: true, count: 3 }
-      - { units: 1, label: M3x20/22b, test: M3x22, count: 1 }
+      # side-fan bottom-corner screw
+      - { units: 1, label: "Fan\nM3x20/22b", test: M3x22, count: 1 }
   - bins:
       - { units: 3, label: M3x30, test: true, count: 9 }
       - { units: 2, label: M3x40, test: true, count: 2 }
