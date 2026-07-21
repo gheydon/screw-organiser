@@ -37,6 +37,8 @@ def main() -> None:
                     help="with --gridfinity: 21 mm half-grid base instead of 42 mm")
     ap.add_argument("--version-text", metavar="TEXT",
                     help='engrave TEXT into the tray underside (overrides layout "version")')
+    ap.add_argument("--release-text", metavar="TEXT",
+                    help="engrave TEXT as a second stamp line under the model version")
     ap.add_argument("--out", default="out")
     args = ap.parse_args()
 
@@ -55,6 +57,8 @@ def main() -> None:
         layout["gridfinity"] = {**(gf if isinstance(gf, dict) else {}), "half": True}
     if args.version_text:
         layout["version"] = args.version_text
+    if args.release_text:
+        layout["release"] = args.release_text
 
     t0 = time.time()
     print(f'building "{layout.get("name", "organiser")}" from {args.config} ...')

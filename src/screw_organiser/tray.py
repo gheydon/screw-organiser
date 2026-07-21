@@ -194,13 +194,15 @@ def build_tray(layout: dict, layout_dir: Path) -> Tray:
     # ---- version stamp -------------------------------------------------
     # Engraved into the underside (Prusa-style part identification). The
     # text is mirrored so it reads correctly when the tray is flipped over,
-    # and recessed so the first layer prints flat.
-    if layout.get("version"):
-        spec = layout["version"]
+    # and recessed so the first layer prints flat. A release tag (from
+    # --release-text) is stamped as a second line under the model version.
+    if layout.get("version") or layout.get("release"):
+        spec = layout.get("version", {})
         spec = {"text": str(spec)} if not isinstance(spec, dict) else spec
         cfg = merged(DEFAULTS["versionText"], spec)
+        lines = [s for s in (spec.get("text"), layout.get("release")) if s]
         stamp = solid_label(
-            str(spec["text"]),
+            "\n".join(str(s) for s in lines),
             cap_height=cfg["capHeight"],
             depth=cfg["depth"] + 0.01,
             max_width=stamp_w,

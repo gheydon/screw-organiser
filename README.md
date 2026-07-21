@@ -82,7 +82,9 @@ always unlabelled.
 tray's underside (the centre foot in gridfinity mode) — recessed so the
 first layer prints flat, oriented to read when the tray is flipped over.
 Tune with `version: { text: R2, capHeight: 6, depth: 0.4 }`, or override at
-build time with `--version-text R2`.
+build time with `--version-text R2`. `--release-text v1.2` stamps a release
+tag as a second line beneath the model version (the release workflow does
+this automatically with the GitHub release tag).
 
 A bin's `count` records how many pieces belong in it. Counts are not shown
 on labels by default; enable them with the `--counts` flag or persistently

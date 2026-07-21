@@ -34,7 +34,8 @@ jobs:
       - name: Build all trays
         run: |
           TAG="${{ github.event.release.tag_name }}"
-          make -j2 everything EXTRA="${TAG:+--version-text $TAG}"
+          # release tag goes under the tray's own version stamp
+          make -j2 everything EXTRA="${TAG:+--release-text $TAG}"
 
       - name: Bundle by variant
         run: |
