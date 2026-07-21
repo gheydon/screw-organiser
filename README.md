@@ -190,6 +190,20 @@ from the gridfinity-build123d package: the tray shell is
 `Bin(BaseEqual(...), height=..., lip=StackingLip())` with the bins carved
 from its solid fill.
 
+## Contributing a tray
+
+Trays for other printers and kits are very welcome — a tray is just a YAML
+file. To add one:
+
+1. Copy an existing layout in `layouts/` (e.g. `prusa-mini-kit.yaml`) and
+   fill in your rows of bins: `label`, `units` wide, `count`, and `test` for
+   screw/shaft/spring gauges. Every row must span the same total units.
+2. Aggregate the hardware from the kit's assembly manual — per-step parts
+   callouts are the reliable source. Note exclusions (rods, belts, zip ties)
+   in a comment at the top, and start it at `version: R1`.
+3. `make <your-layout-name>` to build it, check the render/slicer output,
+   and open a pull request.
+
 ## License
 
 CC0 1.0 (public domain) — see [LICENSE](LICENSE).
