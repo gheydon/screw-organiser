@@ -1,0 +1,47 @@
+# Hardware for the Voron Trident build, from the official Voron Development
+# Team sourcing guide (vorondesign.com/sourcing_guide, VORON Trident tab).
+# Excluded: belts, extrusions, leadscrews, panels, electronics; Misc holds
+# the 5x30 shaft, M4 thumb nuts x3 and oddments. Toolhead hardware is in
+# voron-stealthburner.
+name: voron-trident
+frontText: Voron Trident
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#ED3023", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3 heatset, count: 109 }
+      - { units: 2, label: M3 roll-in T, count: 86 }
+      - { units: 2, label: M3 hammer, count: 55 }
+      - { units: 1, label: M5 heatset, count: 15 }
+  - bins:
+      - { units: 1, label: M2x10sT, test: M2x10, count: 17 }
+      - { units: 1, label: M3x6 FHCS, test: M3x6, count: 17 }
+      - { units: 2, label: M3x6 BHCS, test: M3x6, count: 59 }
+      - { units: 2, label: M3x12, test: true, count: 73 }
+      - { units: 1, label: M3x20, test: true, count: 3 }
+  - bins:
+      - { units: 2, label: M3x16, test: true, count: 27 }
+      - { units: 2, label: M3x30, test: true, count: 13 }
+      - { units: 3, label: M3x8, test: true, count: 140 }
+  - bins:
+      - { units: 2, label: M3x40, test: true, count: 9 }
+      - { units: 2, label: M5x10, test: M5x10, count: 45 }
+      - { units: 2, label: M5x16, test: M5x16, count: 58 }
+      - { units: 1, label: M4x6, test: true, count: 7 }
+  - bins:
+      - { units: 2, label: M5x30, test: M5x30, count: 4 }
+      - { units: 2, label: M5x40, test: M5x40, count: 4 }
+      - { units: 2, label: M5 T-nut, count: 69 }
+      - { units: 1, label: M5 shim, count: 24 }
+  - bins:
+      - { units: 2, label: F695, count: 24 }
+      - { units: 1, label: GE5C, count: 3 }
+      - { units: 1, label: Pulleys, count: 5 }
+      # M3 lock nuts x6 + M3 washers x4
+      - { units: 1, label: M3 lock/wshr, count: 10 }
+      - { units: 1, label: Spare }
+      - { units: 1 }  # unlabelled -> "Misc"

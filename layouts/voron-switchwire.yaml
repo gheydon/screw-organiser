@@ -1,0 +1,46 @@
+# Hardware for the Voron Switchwire build, from the official Voron
+# Development Team sourcing guide (vorondesign.com/sourcing_guide,
+# Voron Switchwire tab). SHCS unless noted. Excluded: belts, extrusions,
+# rods, panels, electronics; Misc holds M3 hex nuts x3 and 6x6x3 spacers.
+# Toolhead hardware is in voron-stealthburner.
+name: voron-switchwire
+frontText: Voron Switchwire
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#ED3023", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3 heatset, count: 54 }
+      # M3 T-nuts for 2020 (13) + 3030 (12)
+      - { units: 2, label: M3 T-nut, count: 25 }
+      - { units: 1, label: M2x10sT, test: M2x10, count: 8 }
+      - { units: 1, label: M3x6 BHCS, test: M3x6, count: 6 }
+  - bins:
+      - { units: 1, label: M3x6 FHCS, test: M3x6, count: 16 }
+      - { units: 1, label: M3x12, test: true, count: 12 }
+      - { units: 1, label: M3x12 FHCS, test: M3x12, count: 9 }
+      - { units: 1, label: M3x16, test: true, count: 12 }
+      - { units: 1, label: M3x20, test: true, count: 3 }
+      - { units: 1, label: M4x8, test: true, count: 4 }
+  - bins:
+      - { units: 2, label: M3x8, test: true, count: 66 }
+      - { units: 2, label: M3x25, test: true, count: 2 }
+      - { units: 2, label: M3x30, test: true, count: 28 }
+  - bins:
+      - { units: 2, label: M3x40, test: true, count: 7 }
+      - { units: 2, label: M5x10, test: M5x10, count: 50 }
+      - { units: 2, label: M5x16, test: M5x16, count: 12 }
+  - bins:
+      - { units: 2, label: M5x30, test: M5x30, count: 5 }
+      - { units: 2, label: M5x40, test: M5x40, count: 6 }
+      - { units: 1, label: M8x16, test: M8x16, count: 8 }
+      - { units: 1, label: Shim 5x10, count: 19 }
+  - bins:
+      # M5 T-nuts for 2020 (12) + 3030 (52)
+      - { units: 2, label: M5 T-nut, count: 64 }
+      - { units: 2, label: F695, count: 20 }
+      - { units: 1, label: Pulleys, count: 3 }
+      - { units: 1 }  # unlabelled -> "Misc"

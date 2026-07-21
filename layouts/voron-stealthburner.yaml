@@ -1,0 +1,29 @@
+# Hardware for the Voron Stealthburner toolhead, from the official Voron
+# Development Team sourcing guide (vorondesign.com/sourcing_guide,
+# Voron Stealthburner tab), including the optional ADXL mount hardware.
+# Misc holds the hotend mounting screws, M3 washer and ADXL inserts.
+name: voron-stealthburner
+frontText: Stealthburner
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#ED3023", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3 heatset, count: 21 }
+      # M3x6 FHCS (3) + BHCS (1)
+      - { units: 1, label: M3x6, test: true, count: 4 }
+      - { units: 1, label: M3x8, test: true, count: 2 }
+      - { units: 1, label: M3x10, test: true, count: 2 }
+      - { units: 1, label: M3x12, test: true, count: 4 }
+  - bins:
+      - { units: 1, label: M3x16, test: true, count: 2 }
+      - { units: 1, label: M3x20, test: true, count: 1 }
+      - { units: 2, label: M3x25, test: true, count: 6 }
+      - { units: 1, label: M2x10sT, test: M2x10, count: 2 }
+  - bins:
+      - { units: 2, label: M3x30, test: true, count: 1 }
+      - { units: 2, label: M3x50, test: true, count: 2 }
+      - { units: 1 }  # unlabelled -> "Misc"

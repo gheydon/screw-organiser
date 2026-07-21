@@ -1,0 +1,51 @@
+# Hardware for the Voron 2.4 build, from the official Voron Development
+# Team sourcing guide (vorondesign.com/sourcing_guide, VORON 2.4 tab).
+# Kit quantities (upper bound where the guide gives a range). Excluded:
+# belts, extrusions, panels, electronics; Misc holds M3 washers x2 and
+# M4 knurled nuts x4. Toolhead hardware is in voron-stealthburner.
+name: voron-v24
+frontText: Voron 2.4
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#ED3023", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3 heatset, count: 90 }
+      - { units: 2, label: M3 T-nut, count: 120 }
+      - { units: 1, label: M3 hammer, count: 47 }
+      - { units: 1, label: M3n, count: 7 }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 1, label: M2x10sT, test: M2x10, count: 15 }
+      - { units: 1, label: M3x6 FHCS, test: M3x6, count: 10 }
+      - { units: 1, label: M3x6 BHCS, test: M3x6, count: 12 }
+      - { units: 1, label: M3x12, test: true, count: 23 }
+      - { units: 1, label: M3x16, test: true, count: 20 }
+      - { units: 1, label: M3x20, test: true, count: 29 }
+      - { units: 1, label: M4x6, test: true, count: 7 }
+  - bins:
+      - { units: 2, label: M3x30, test: true, count: 32 }
+      - { units: 2, label: M3x40, test: true, count: 28 }
+      - { units: 3, label: M3x8, test: true, count: 217 }
+  - bins:
+      - { units: 2, label: M5x10, test: M5x10, count: 40 }
+      - { units: 2, label: M5x16, test: M5x16, count: 31 }
+      - { units: 2, label: M5x30, test: M5x30, count: 22 }
+      - { units: 1, label: M5 hex, count: 26 }
+  - bins:
+      - { units: 2, label: M5x40, test: M5x40, count: 25 }
+      # 5x60 (ground flat, x4) + 5x30 (x1) idler shafts
+      - { units: 3, label: Shafts 5x60/30, test: { dia: 5.4, length: 60, head: false }, count: 5 }
+      - { units: 1, label: Shim 5x10, count: 42 }
+      - { units: 1, label: F695, count: 20 }
+  - bins:
+      - { units: 1, label: M5 T-nut, count: 61 }
+      - { units: 1, label: "625 brg", count: 12 }
+      - { units: 1, label: Pulleys, count: 11 }
+      - { units: 1, label: Idlers, count: 6 }
+      - { units: 1, label: 80T, count: 4 }
+      - { units: 1, label: Loops 188, count: 4 }
+      - { units: 1, label: Spare }

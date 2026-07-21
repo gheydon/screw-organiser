@@ -1,0 +1,40 @@
+# Hardware for the Voron 0.2 build, from the official Voron Development
+# Team sourcing guide (vorondesign.com/sourcing_guide, VORON 0.2 tab).
+# Kit quantities (the guide rounds up to pack sizes). BHCS unless noted.
+# Excluded: belt, extrusions, rails, panels, electronics; Misc holds the
+# MR85 bearings x2, T8 nut, Makerbeam T-nuts x2 and extruder oddments.
+name: voron-v02
+frontText: Voron 0.2
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#ED3023", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3n, count: 140 }
+      - { units: 1, label: M2n, count: 60 }
+      - { units: 2, label: M3 heatset, count: 50 }
+      - { units: 1, label: M2x6 FHCS, test: M2x6, count: 10 }
+  - bins:
+      - { units: 1, label: M2x6, test: true, count: 60 }
+      - { units: 1, label: M2x8, test: true, count: 10 }
+      - { units: 1, label: M2x10sT, test: M2x10, count: 30 }
+      - { units: 1, label: M3x6, test: true, count: 40 }
+      - { units: 2, label: M3x10, test: true, count: 50 }
+  - bins:
+      # includes the 5 M3x8 FHCS
+      - { units: 2, label: M3x8, test: true, count: 120 }
+      - { units: 2, label: M3x12, test: true, count: 25 }
+      - { units: 1, label: M3x16, test: true, count: 10 }
+      - { units: 1, label: Clips }
+  - bins:
+      - { units: 2, label: M3x25, test: true, count: 10 }
+      - { units: 2, label: M3x30, test: true, count: 10 }
+      - { units: 2, label: M3x35, test: true, count: 10 }
+  - bins:
+      - { units: 2, label: M3x40, test: true, count: 10 }
+      - { units: 2, label: Shim 6x3, count: 50 }
+      - { units: 1, label: F623, count: 24 }
+      - { units: 1 }  # unlabelled -> "Misc"
