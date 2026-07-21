@@ -1,0 +1,15 @@
+# Tiny single-bin coupon for testing multi-material printing: one labelled
+# bin with a gauge plus front text, so all three colour objects (bins /
+# labels / front) are exercised in a few-minute print. Excluded from the
+# bulk make targets like all example-* layouts.
+name: example-mmu-test
+frontText: Test
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: MMU Test, test: M3x10, count: 1 }
