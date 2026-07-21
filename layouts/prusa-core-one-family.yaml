@@ -1,0 +1,53 @@
+# Generic hardware tray for the Prusa CORE One family: union of the CORE One
+# kit assembly manual (2251) and the CORE One+ upgrade (2338), max count per
+# fastener. The rT (Torx) hardware era shows. Excluded: rods, belts, PTFE,
+# panels, zip ties. Misc holds M4x6r x2, the One+ magnets/ball/O-ring,
+# insulating inserts and odd spacers.
+name: prusa-core-one-family
+frontText: CORE One Family
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3nS, count: 23 }
+      - { units: 1, label: M3n, count: 5 }
+      - { units: 1, label: M3nN, count: 17 }
+      # motor washers (3) + M3w (3)
+      - { units: 1, label: Washers, count: 6 }
+      - { units: 1, label: Spacers }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      # M3x4 (4) + M3x4r (8)
+      - { units: 1, label: M3x4/r, test: M3x4, count: 12 }
+      - { units: 1, label: M3x4bT, test: M3x4, count: 8 }
+      - { units: 2, label: M3x4rT, test: M3x4, count: 50 }
+      - { units: 1, label: M3x5rT, test: M3x5, count: 10 }
+      - { units: 1, label: M2x8, test: true, count: 1 }
+  - bins:
+      - { units: 2, label: M3x6, test: true, count: 33 }
+      - { units: 1, label: M3x8, test: true, count: 26 }
+      # includes the 8 black ones
+      - { units: 2, label: M3x8rT, test: M3x8, count: 27 }
+      - { units: 1, label: M3x10rT, test: M3x10, count: 10 }
+  - bins:
+      - { units: 2, label: M3x10, test: true, count: 35 }
+      # M3x12 (2) + M3x12rT (2, One+ vent)
+      - { units: 1, label: M3x12, test: true, count: 4 }
+      - { units: 1, label: M3x18, test: true, count: 23 }
+      - { units: 2, label: M3x25, test: true, count: 4 }
+  - bins:
+      - { units: 2, label: M3x30, test: true, count: 15 }
+      - { units: 2, label: M3x35, test: true, count: 8 }
+      # PSU power terminal screws (imperial #6-32)
+      - { units: 1, label: 6-32, test: 3.9, count: 2 }
+      - { units: 1, label: LM8UU, count: 2 }
+  - bins:
+      - { units: 2, label: Nylon rivets, count: 50 }
+      - { units: 1, label: Idlers GT2-20, count: 12 }
+      # T16-2GT (2) + belt tensioner pulleys (2)
+      - { units: 1, label: Pulleys, count: 4 }
+      - { units: 2, label: LM10LUU, count: 2 }

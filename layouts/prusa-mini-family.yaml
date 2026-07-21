@@ -3,8 +3,8 @@
 # per-step parts callouts. Excluded: smooth rods, belts and the 150 mm PTFE
 # tube (too long), zip ties (leave in the bag). Misc holds the one-offs:
 # shaft 5x12, fan spacer + clip, Y-belt-holder hardware.
-name: prusa-mini-kit
-frontText: MINI+ Kit Assembly
+name: prusa-mini-family
+frontText: MINI Family (MINI / MINI+)
 version: R1
 tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
 grid: { pitch: 30, divider: 2 }
