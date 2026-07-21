@@ -1,0 +1,52 @@
+# Hardware for the MK4/S to CORE One conversion kit
+# (help.prusa3d.com manual 2276, rev 2026-07), aggregated from the per-step
+# parts callouts — deliberately its own tray, separate from the MK4 and
+# CORE One family trays. Excluded: rods, belts, PTFE tubes, panels, zip
+# ties. Misc holds M4x6r x2, M2x8, M2.5x10, M3x12bT, M3x25, the M5-4
+# fitting, cable clips and odd spacers.
+name: prusa-mk4-to-core-one-conversion
+frontText: MK4 to CORE One
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3nS, count: 25 }
+      - { units: 1, label: M3n, count: 5 }
+      - { units: 1, label: M3nN, count: 16 }
+      # motor washers (6) + M3w (3)
+      - { units: 1, label: Washers, count: 9 }
+      # 10x6x2 (2) + 2x6x20 (2) + 7mm ball + holders
+      - { units: 1, label: "Magnet\n+ Ball" }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      # M3x4 (4) + M3x4r (8)
+      - { units: 1, label: M3x4/r, test: M3x4, count: 12 }
+      - { units: 1, label: M3x4bT, test: M3x4, count: 8 }
+      - { units: 2, label: M3x4rT, test: M3x4, count: 52 }
+      - { units: 1, label: M3x5rT, test: M3x5, count: 8 }
+      - { units: 1, label: M3x12, test: true, count: 2 }
+  - bins:
+      - { units: 2, label: M3x6, test: true, count: 35 }
+      - { units: 2, label: M3x8, test: true, count: 50 }
+      # includes the 8 black ones
+      - { units: 2, label: M3x8rT, test: M3x8, count: 27 }
+  - bins:
+      - { units: 2, label: M3x10, test: true, count: 35 }
+      - { units: 1, label: M3x10rT, test: M3x10, count: 10 }
+      - { units: 1, label: M3x18, test: true, count: 23 }
+      - { units: 2, label: M3x30, test: true, count: 13 }
+  - bins:
+      - { units: 2, label: M3x35, test: true, count: 8 }
+      - { units: 1, label: LM8UU, count: 6 }
+      - { units: 2, label: LM10LUU, count: 2 }
+      - { units: 1, label: Spacers }
+  - bins:
+      - { units: 2, label: Nylon rivets, count: 50 }
+      - { units: 1, label: Idlers GT2-20, count: 14 }
+      # T16-2GT (2) + GT2-16 (2) + belt tensioner (2)
+      - { units: 1, label: Pulleys, count: 6 }
+      - { units: 2, label: Spare }
