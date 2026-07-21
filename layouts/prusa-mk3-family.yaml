@@ -1,0 +1,53 @@
+# Generic hardware tray for the Prusa MK3 family: MK3, MK3S, MK3S+ and the
+# MK3.5/S and MK3.9/S upgrades. Union of the MK3S+ kit assembly manual
+# (1128) with the MK3.5 (2121) and MK3.9 (2071) upgrade manuals — each bin
+# holds the maximum count any variant needs, so one tray serves the family.
+# Excluded: smooth rods, belts, threaded rods, bearing pads (31x16 sheets,
+# too wide), zip ties. Misc holds M4x10r domes, M4x5, magnets + steel ball,
+# M3w/M5w washers and other one-offs.
+name: prusa-mk3-family
+frontText: MK3 Family (MK3S+ / 3.5 / 3.9)
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 2, label: M3nS, count: 49 }
+      - { units: 2, label: M3n, count: 30 }
+      - { units: 1, label: M3nN, count: 12 }
+      - { units: 1, label: M3nE, count: 7 }
+  - bins:
+      - { units: 1, label: M3x4bT, test: M3x4, count: 9 }
+      - { units: 2, label: M3x6, test: true, count: 25 }
+      - { units: 1, label: M3x6r, test: M3x6, count: 9 }
+      - { units: 1, label: M3x8, test: true, count: 10 }
+      - { units: 1, label: M3x12, test: true, count: 15 }
+  - bins:
+      - { units: 1, label: M3x14, test: true, count: 5 }
+      - { units: 1, label: M3x16, test: true, count: 7 }
+      - { units: 1, label: M3x18, test: true, count: 15 }
+      - { units: 1, label: M3x20, test: true, count: 3 }
+      - { units: 2, label: M3x25, test: true, count: 4 }
+  - bins:
+      - { units: 2, label: M3x30, test: true, count: 9 }
+      - { units: 2, label: M3x40, test: true, count: 7 }
+      - { units: 2, label: M3x10, test: true, count: 100 }
+  - bins:
+      - { units: 2, label: M5x16r, test: M5x16, count: 64 }
+      # PSU power terminal screws (imperial #6-32)
+      - { units: 1, label: 6-32, test: 3.9, count: 4 }
+      - { units: 1, label: LM8UU, count: 10 }
+      - { units: 2, label: LM10LUU, count: 2 }
+  - bins:
+      # 693 2RS (2) + 623h housings (2) + 625
+      - { units: 1, label: Small brgs, count: 5 }
+      - { units: 1, label: GT2-16, count: 2 }
+      # bearing clips (6) + X-end clips (2) + X-carriage clip
+      - { units: 1, label: Clips, count: 9 }
+      - { units: 1, label: Cable clips, count: 7 }
+      # 6x6x3T spacers (9) + M3x10 hex standoffs (3) + 3.1x6x8
+      - { units: 1, label: Spacers, count: 13 }
+      - { units: 1 }  # unlabelled -> "Misc"

@@ -1,0 +1,39 @@
+# Generic hardware tray for the Prusa MK2 family (MK2S, MK2.5), based on
+# the MK2S kit assembly manual (384) with counts rounded up to cover the
+# MK2.5 upgrade. The frame era shows: M8/M10 nuts and washers for the
+# threaded-rod Y frame. Excluded: threaded rods, smooth rods, belts.
+# Misc holds M4x10 dome screws, M5w washers, M3nN nylocks and oddments.
+name: prusa-mk2-family
+frontText: MK2 Family (MK2S / 2.5)
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.3 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M8n, count: 22 }
+      - { units: 1, label: M8w, count: 22 }
+      - { units: 1, label: M10n, count: 14 }
+      - { units: 1, label: M10w, count: 12 }
+      - { units: 1, label: M3n, count: 13 }
+      - { units: 1, label: M3nS, count: 8 }
+  - bins:
+      - { units: 1, label: M2x12, test: true, count: 4 }
+      - { units: 1, label: M3x8r, test: M3x8, count: 5 }
+      - { units: 2, label: M3x10, test: true, count: 31 }
+      - { units: 1, label: M3x12, test: true, count: 6 }
+      - { units: 1, label: M3x18, test: true, count: 12 }
+  - bins:
+      - { units: 1, label: M3x20, test: true, count: 3 }
+      - { units: 2, label: M3x25, test: true, count: 2 }
+      - { units: 2, label: M3x30, test: true, count: 3 }
+      - { units: 1, label: M4x10, test: true, count: 2 }
+  - bins:
+      - { units: 2, label: M3x40, test: true, count: 6 }
+      - { units: 1, label: M3w, count: 16 }
+      - { units: 1, label: Springs, count: 2 }
+      # 623h housed bearing + 625
+      - { units: 1, label: Bearings, count: 2 }
+      - { units: 1 }  # unlabelled -> "Misc"
