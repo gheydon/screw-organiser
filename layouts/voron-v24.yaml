@@ -20,25 +20,25 @@ rows:
       - { units: 1 }  # unlabelled -> "Misc"
   - bins:
       - { units: 1, label: M2x10sT, test: M2x10, count: 15 }
-      - { units: 1, label: M3x6 FHCS, test: M3x6, count: 10 }
-      - { units: 1, label: M3x6 BHCS, test: M3x6, count: 12 }
+      - { units: 1, label: M3x6 FHCS, test: M3x6, head: flush, count: 10 }
+      - { units: 1, label: M3x6 BHCS, test: M3x6, head: button, count: 12 }
       - { units: 1, label: M3x12, test: true, count: 23 }
       - { units: 1, label: M3x16, test: true, count: 20 }
       - { units: 1, label: M3x20, test: true, count: 29 }
-      - { units: 1, label: M4x6, test: true, count: 7 }
+      - { units: 1, label: M4x6, test: true, head: button, count: 7 }
   - bins:
       - { units: 2, label: M3x30, test: true, count: 32 }
       - { units: 2, label: M3x40, test: true, count: 28 }
       - { units: 3, label: M3x8, test: true, count: 217 }
   - bins:
-      - { units: 2, label: M5x10, test: M5x10, count: 40 }
-      - { units: 2, label: M5x16, test: M5x16, count: 31 }
-      - { units: 2, label: M5x30, test: M5x30, count: 22 }
+      - { units: 2, label: M5x10, test: M5x10, head: button, count: 40 }
+      - { units: 2, label: M5x16, test: M5x16, head: button, count: 31 }
+      - { units: 2, label: M5x30, test: M5x30, head: button, count: 22 }
       - { units: 1, label: M5 hex, count: 26 }
   - bins:
       - { units: 2, label: M5x40, test: M5x40, count: 25 }
       # 5x60 (ground flat, x4) + 5x30 (x1) idler shafts
-      - { units: 3, label: Shafts 5x60/30, test: { dia: 5.4, length: 60, head: false }, count: 5 }
+      - { units: 3, label: Shafts 5x60/30, test: { dia: 5.4, length: 60, head: none }, count: 5 }
       - { units: 1, label: Shim 5x10, count: 42 }
       - { units: 1, label: F695, count: 20 }
   - bins:

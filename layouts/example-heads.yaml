@@ -1,0 +1,14 @@
+# Test coupon for the three head-pocket types on M5 screws.
+name: example-heads
+frontText: Heads
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.6 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M5x16 cap, test: M5x16 }                    # default socket cap
+      - { units: 1, label: M5x16 button, test: M5x16, head: button }
+      - { units: 1, label: M5x16 flush, test: M5x16, head: flush }
+      - { units: 1, label: M5 grub, test: M5x16, head: none }

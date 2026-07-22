@@ -42,10 +42,10 @@ rows:
       - { units: 2, label: M3x25, test: true, count: 4 }
       - { units: 2, label: M3x35, test: true, count: 2 }
       # tool dock springs 0.5 x 8.5 x 30
-      - { units: 2, label: Spring 30mm, test: { dia: 8.9, length: 30, head: false }, count: 8 }
+      - { units: 2, label: Spring 30mm, test: { dia: 8.9, length: 30, head: none }, count: 8 }
   - bins:
       # tool springs 0.63 x 5 x 15
-      - { units: 1, label: Spring 15mm, test: { dia: 5.4, length: 15, head: false }, count: 18 }
+      - { units: 1, label: Spring 15mm, test: { dia: 5.4, length: 15, head: none }, count: 18 }
       - { units: 1, label: Collet, count: 8 }
       - { units: 1, label: Mag 7x8, count: 8 }
       - { units: 1, label: Ball 7mm, count: 8 }

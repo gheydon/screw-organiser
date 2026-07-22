@@ -43,4 +43,4 @@ rows:
       - { units: 2, label: Nylon rivets, count: 65 }
       # door + accessory magnets, listed as 20x6x2 and 2x6x20 in the manual
       - { units: 2, label: Mag 20x6x2, count: 41 }
-      - { units: 2, label: Spring 4x25, test: { dia: 4.4, length: 25, head: false }, count: 2 }
+      - { units: 2, label: Spring 4x25, test: { dia: 4.4, length: 25, head: none }, count: 2 }

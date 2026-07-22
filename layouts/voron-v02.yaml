@@ -16,25 +16,25 @@ rows:
       - { units: 2, label: M3n, count: 140 }
       - { units: 1, label: M2n, count: 60 }
       - { units: 2, label: M3 heatset, count: 50 }
-      - { units: 1, label: M2x6 FHCS, test: M2x6, count: 10 }
+      - { units: 1, label: M2x6 FHCS, test: M2x6, head: flush, count: 10 }
   - bins:
       - { units: 1, label: M2x6, test: true, count: 60 }
       - { units: 1, label: M2x8, test: true, count: 10 }
       - { units: 1, label: M2x10sT, test: M2x10, count: 30 }
-      - { units: 1, label: M3x6, test: true, count: 40 }
-      - { units: 2, label: M3x10, test: true, count: 50 }
+      - { units: 1, label: M3x6, test: true, head: button, count: 40 }
+      - { units: 2, label: M3x10, test: true, head: button, count: 50 }
   - bins:
       # includes the 5 M3x8 FHCS
-      - { units: 2, label: M3x8, test: true, count: 120 }
-      - { units: 2, label: M3x12, test: true, count: 25 }
-      - { units: 1, label: M3x16, test: true, count: 10 }
+      - { units: 2, label: M3x8, test: true, head: button, count: 120 }
+      - { units: 2, label: M3x12, test: true, head: button, count: 25 }
+      - { units: 1, label: M3x16, test: true, head: button, count: 10 }
       - { units: 1, label: Clips }
   - bins:
-      - { units: 2, label: M3x25, test: true, count: 10 }
-      - { units: 2, label: M3x30, test: true, count: 10 }
-      - { units: 2, label: M3x35, test: true, count: 10 }
+      - { units: 2, label: M3x25, test: true, head: button, count: 10 }
+      - { units: 2, label: M3x30, test: true, head: button, count: 10 }
+      - { units: 2, label: M3x35, test: true, head: button, count: 10 }
   - bins:
-      - { units: 2, label: M3x40, test: true, count: 10 }
+      - { units: 2, label: M3x40, test: true, head: button, count: 10 }
       - { units: 2, label: Shim 6x3, count: 50 }
       - { units: 1, label: F623, count: 24 }
       - { units: 1 }  # unlabelled -> "Misc"

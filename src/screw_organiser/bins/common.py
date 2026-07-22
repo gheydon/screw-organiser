@@ -10,6 +10,7 @@ from build123d import (
     BuildLine,
     BuildPart,
     BuildSketch,
+    Cone,
     Cylinder,
     Part,
     Plane,
@@ -71,12 +72,61 @@ def test_spec(bin_spec: dict, params: dict) -> dict | None:
             "length": float(m.group(2)) if m.group(2) else None,
         }
 
-    spec["head"] = spec.get("head", True) is not False
-    if spec["head"]:
-        nominal = spec["dia"] - clearance
-        spec.setdefault("headDia", 1.8 * nominal + 0.6)
-        spec.setdefault("headLength", nominal + 0.4)
+    # allow "head" as a sibling of "test" (for string/number test specs)
+    if "head" not in spec and "head" in bin_spec:
+        spec["head"] = bin_spec["head"]
+    _resolve_head(spec, clearance)
     return spec
+
+
+# Head geometry per type, ISO-derived. Diameter across flats/round =
+# dia_m * nominal + dia_b (+ clearance); axial length = len_m * nominal.
+#   cap    ISO 4762 socket head cap screw (SHCS): M3 5.5, M5 8.5, M8 13
+#   button ISO 7380 button head          (BHCS): M3 5.7, M5 9.5, M8 14
+#   flush  ISO 10642 countersunk 90deg    (FHCS): M3 6.0, M5 10, M8 16 (cone)
+HEAD_TYPES = {
+    "cap":    {"dia_m": 1.5,  "dia_b": 1.0, "len_m": 1.0,  "cone": False},
+    "button": {"dia_m": 1.75, "dia_b": 0.4, "len_m": 0.55, "cone": False},
+    "flush":  {"dia_m": 2.0,  "dia_b": 0.0, "len_m": None, "cone": True},
+}
+# accepted aliases for the "head" parameter, incl. the ISO abbreviations
+_HEAD_ALIASES = {
+    "cap": "cap", "shcs": "cap", "socket": "cap", "true": "cap",
+    "button": "button", "bhcs": "button", "dome": "button", "round": "button",
+    "flush": "flush", "fhcs": "flush", "csk": "flush", "countersunk": "flush",
+    "flat": "flush",
+}
+
+
+def _resolve_head(spec: dict, clearance: float) -> None:
+    """Fill in the head pocket (type + dims) on a gauge spec.
+
+    The "head" parameter is explicit: defaults to a socket cap ("cap"), with
+    "button" and "flush" for other heads and "none" (or false) for headless
+    screws like grub/set screws.
+    """
+    h = spec.get("head", "cap")
+    if h is False or (isinstance(h, str) and h.lower() == "none"):
+        spec["head"] = None
+        spec["headCone"] = False
+        return
+    if h is True:
+        h = "cap"
+
+    key = _HEAD_ALIASES.get(str(h).lower())
+    if key is None:
+        raise ValueError(f"unknown head type {h!r} (cap, button, flush, none)")
+
+    nominal = spec["dia"] - clearance
+    ht = HEAD_TYPES[key]
+    spec["head"] = key
+    spec.setdefault("headDia", ht["dia_m"] * nominal + ht["dia_b"] + clearance)
+    if ht["cone"]:
+        # 90deg countersink: cone from thread radius up to head radius
+        spec.setdefault("headLength", (spec["headDia"] - spec["dia"]) / 2)
+    else:
+        spec.setdefault("headLength", ht["len_m"] * nominal + 0.4)
+    spec["headCone"] = ht["cone"]
 
 
 def shelf_for(test: dict, params: dict) -> float:
@@ -141,7 +191,18 @@ def scoop_cavity(cell: dict, params: dict, scoop_radius: float, with_ramp: bool,
 
         cavity += channel(test["dia"] / 2, thread_len, x0 + head_len + thread_len / 2)
         if test["head"]:
-            cavity += channel(test["headDia"] / 2, head_len, x0 + head_len / 2)
+            xc = x0 + head_len / 2
+            if test.get("headCone"):
+                # countersunk seat: thread radius toward the groove (right),
+                # head radius at the outer end (left)
+                cone = Cone(
+                    bottom_radius=test["headDia"] / 2,
+                    top_radius=test["dia"] / 2,
+                    height=head_len,
+                )
+                cavity += Pos(xc, my, H) * Rot(0, -90, 0) * cone
+            else:
+                cavity += channel(test["headDia"] / 2, head_len, xc)
 
     ramp = {"run": run, "angle": angle, "backOffset": shelf} if with_ramp else None
     return cavity, ramp

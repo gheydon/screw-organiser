@@ -30,7 +30,7 @@ rows:
       - { units: 2, label: M3x40, test: true, count: 2 }
       - { units: 2, label: M5x20r, test: M5x20, count: 10 }
       - { units: 1, label: M5x16r, test: M5x16, count: 2 }
-      - { units: 1, label: Spring 5x15, test: { dia: 5.4, length: 15, head: false }, count: 1 }
+      - { units: 1, label: Spring 5x15, test: { dia: 5.4, length: 15, head: none }, count: 1 }
   - bins:
       - { units: 2, label: LM10LUU, count: 2 }
       - { units: 1, label: LM8UU, count: 5 }
@@ -41,5 +41,5 @@ rows:
       - { units: 2, label: Heatbed spacers, count: 9 }
       - { units: 1, label: Pulleys, count: 2 }
       - { units: 1, label: "Magnet\n+ Ball" }
-      - { units: 1, label: PTFE 15, test: { dia: 4.4, length: 15, head: false }, count: 1 }
+      - { units: 1, label: PTFE 15, test: { dia: 4.4, length: 15, head: none }, count: 1 }
       - { units: 1 }  # unlabelled -> "Misc"

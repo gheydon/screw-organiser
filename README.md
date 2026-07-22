@@ -110,8 +110,22 @@ that don't need it (nuts, couplers, springs, ...).
 - `test: 3.9` — explicit groove width in mm (for imperial sizes the label
   parser can't read, e.g. `6-32`)
 - `test: { dia: 3.9, length: 12, head: false }` — fully explicit;
-  `head: false` drops the head pocket for grub/set screws. The pocket is
-  sized automatically (~1.8x thread dia); override with `headDia`/`headLength`.
+  `head: false` drops the head pocket for grub/set screws.
+
+The head pocket type is an explicit `head` parameter, sized to ISO
+dimensions, defaulting to a socket cap:
+
+- `head: cap` — socket head cap screw (SHCS, ISO 4762), **the default**:
+  cylindrical pocket ~1.5x thread dia
+- `head: button` — button head (BHCS, ISO 7380): wider, shallower cylinder
+- `head: flush` — countersunk (FHCS, ISO 10642): a 90-degree conical seat so
+  the head nestles flush
+- `head: none` (or `false`) — no head pocket, for grub/set screws (and used
+  for the headless shaft/spring/PTFE gauges)
+
+`head` can sit inside the `test` dict or alongside it on the bin, e.g.
+`{ label: M5x16, test: M5x16, head: button }`. The ISO abbreviations work as
+values too (`head: BHCS`). Override the pocket size with `headDia`/`headLength`.
 
 Grooves longer than the bin is wide are clamped — put long screws in a
 2+ unit wide bin. Tune globally with `testHoles: { clearance: 0.4, rim: 1.2,

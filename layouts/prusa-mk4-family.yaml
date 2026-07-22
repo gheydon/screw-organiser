@@ -42,7 +42,7 @@ rows:
   - bins:
       - { units: 2, label: M3x30, test: true, count: 9 }
       - { units: 2, label: M3x40, test: true, count: 2 }
-      - { units: 1, label: Spring 15x5, test: { dia: 5.4, length: 15, head: false }, count: 4 }
+      - { units: 1, label: Spring 15x5, test: { dia: 5.4, length: 15, head: none }, count: 4 }
       - { units: 1, label: 693 brg, count: 2 }
   - bins:
       - { units: 2, label: LM10LUU, count: 2 }

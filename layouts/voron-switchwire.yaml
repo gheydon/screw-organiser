@@ -17,26 +17,26 @@ rows:
       # M3 T-nuts for 2020 (13) + 3030 (12)
       - { units: 2, label: M3 T-nut, count: 25 }
       - { units: 1, label: M2x10sT, test: M2x10, count: 8 }
-      - { units: 1, label: M3x6 BHCS, test: M3x6, count: 6 }
+      - { units: 1, label: M3x6 BHCS, test: M3x6, head: button, count: 6 }
   - bins:
-      - { units: 1, label: M3x6 FHCS, test: M3x6, count: 16 }
+      - { units: 1, label: M3x6 FHCS, test: M3x6, head: flush, count: 16 }
       - { units: 1, label: M3x12, test: true, count: 12 }
-      - { units: 1, label: M3x12 FHCS, test: M3x12, count: 9 }
+      - { units: 1, label: M3x12 FHCS, test: M3x12, head: flush, count: 9 }
       - { units: 1, label: M3x16, test: true, count: 12 }
       - { units: 1, label: M3x20, test: true, count: 3 }
-      - { units: 1, label: M4x8, test: true, count: 4 }
+      - { units: 1, label: M4x8, test: true, head: button, count: 4 }
   - bins:
       - { units: 2, label: M3x8, test: true, count: 66 }
       - { units: 2, label: M3x25, test: true, count: 2 }
       - { units: 2, label: M3x30, test: true, count: 28 }
   - bins:
       - { units: 2, label: M3x40, test: true, count: 7 }
-      - { units: 2, label: M5x10, test: M5x10, count: 50 }
-      - { units: 2, label: M5x16, test: M5x16, count: 12 }
+      - { units: 2, label: M5x10, test: M5x10, head: button, count: 50 }
+      - { units: 2, label: M5x16, test: M5x16, head: button, count: 12 }
   - bins:
-      - { units: 2, label: M5x30, test: M5x30, count: 5 }
+      - { units: 2, label: M5x30, test: M5x30, head: button, count: 5 }
       - { units: 2, label: M5x40, test: M5x40, count: 6 }
-      - { units: 1, label: M8x16, test: M8x16, count: 8 }
+      - { units: 1, label: M8x16, test: M8x16, head: button, count: 8 }
       - { units: 1, label: Shim 5x10, count: 19 }
   - bins:
       # M5 T-nuts for 2020 (12) + 3030 (52)
