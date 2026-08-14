@@ -1,0 +1,33 @@
+# Hardware for the CORE One -> Gen 2 ("+") upgrade
+# (help.prusa3d.com manual 2435, rev 2026-08), aggregated from the per-step
+# parts callouts. "cT" screws are countersunk (flush); rT/bT are torx pan
+# heads (cap). Excluded: PTFE tube, panels, printed parts. Misc holds the
+# cable clip, M4-5 fitting, 10 mm heatbed spacer and oddments.
+name: prusa-core-one-gen2-upgrade
+frontText: CORE One Gen 2 Upgrade
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.6 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: "M3n\n+ M3nS" }
+      - { units: 1, label: PTFE wshr, count: 16 }
+      - { units: 2, label: Nylon rivets, count: 32 }
+      # GT1.5-21 pulleys (2) + pulley-offset-tools (2)
+      - { units: 1, label: Pulleys, count: 4 }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 1, label: M3x4rT, test: M3x4, count: 10 }
+      - { units: 1, label: M3x4cT, test: M3x4, head: flush, count: 8 }
+      - { units: 1, label: M3x5rT, test: M3x5, count: 4 }
+      # M3x6 (4) + M3x6r (1)
+      - { units: 1, label: M3x6, test: true, count: 5 }
+      - { units: 1, label: M3x8rT, test: M3x8, count: 2 }
+      - { units: 1, label: M3x14cT, test: M3x14, head: flush, count: 1 }
+  - bins:
+      - { units: 2, label: M3x10, test: true, count: 12 }
+      - { units: 1, label: M3x20, test: true, count: 2 }
+      - { units: 3, label: M3x30, test: true, count: 8 }

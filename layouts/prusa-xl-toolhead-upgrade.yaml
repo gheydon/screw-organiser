@@ -1,0 +1,44 @@
+# Hardware for the Original Prusa XL toolhead upgrades, from the
+# single-tool -> five-head upgrade manual (2105, rev 2026-02) which is the
+# superset of the single->dual (2097) and dual->five (2113) paths. Counts
+# are the maximal (five-head) build; a dual-head upgrade uses a subset.
+# "bT" torx and rT torx are pan heads (cap). Excluded: dwarf boards,
+# cables, printed parts. Misc holds calibration pins/key and oddments.
+name: prusa-xl-toolhead-upgrade
+frontText: XL Toolhead Upgrade
+version: R1
+tray: { wall: 3, height: 12, floor: 2, cornerRadius: 3.75 }
+grid: { pitch: 30, divider: 2 }
+defaults: { type: scoop, scoopRadius: 10, rampAngle: 63.435 }
+labels: { capHeight: 3.2, depth: 0.6 }
+colors: { body: "#FA6831", labels: "#1A1A1A" }
+rows:
+  - bins:
+      - { units: 1, label: M3nN, count: 3 }
+      - { units: 1, label: "M3nS\n+ M3nES" }
+      - { units: 1, label: M4nES, count: 4 }
+      # TC push pins (4) + calibration pins (2) + pin key
+      - { units: 2, label: TC / cal pins, count: 6 }
+      - { units: 1 }  # unlabelled -> "Misc"
+  - bins:
+      - { units: 1, label: M3x4rT, test: M3x4, count: 10 }
+      - { units: 1, label: M3x6, test: true, count: 3 }
+      - { units: 2, label: M3x8, test: true, count: 6 }
+      - { units: 1, label: M3x8rT, test: M3x8, count: 6 }
+      - { units: 1, label: M3x8bT, test: M3x8, count: 3 }
+  - bins:
+      - { units: 2, label: M3x10, test: true, count: 6 }
+      - { units: 1, label: M3x12, test: true, count: 1 }
+      - { units: 2, label: M3x12bT, test: M3x12, count: 8 }
+      - { units: 1, label: M3x14, test: true, count: 2 }
+  - bins:
+      - { units: 1, label: M3x20rT, test: M3x20, count: 3 }
+      - { units: 2, label: M3x30, test: true, count: 2 }
+      - { units: 1, label: M3x35, test: true, count: 2 }
+      # PSU power terminal screws (imperial #6-32)
+      - { units: 1, label: 6-32, test: 3.9, count: 2 }
+      - { units: 1, label: M4x12, test: M4x12, count: 6 }
+  - bins:
+      - { units: 2, label: Spring 3x9, test: { dia: 3.4, length: 9, head: none }, count: 4 }
+      - { units: 2, label: Spring 15x5, test: { dia: 5.4, length: 15, head: none }, count: 1 }
+      - { units: 2, label: Spare }
