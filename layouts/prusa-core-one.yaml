@@ -35,6 +35,7 @@ rows:
       - { units: 1, label: M3x12, test: true }
       - { units: 3, label: M3x18, test: true }
       - { units: 2, label: M3x25, test: true }
+      - { units: 2, label: "M3x25 SSS", test: true, head: none, count: 2 }   # Nextruder socket set screw (headless)
   - bins:
       - { units: 1, label: M3x4, test: true }
       - { units: 2, label: M3x6, test: true }
