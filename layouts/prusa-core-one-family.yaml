@@ -41,6 +41,7 @@ rows:
       - { units: 2, label: M3x25, test: true, count: 4 }
       - { units: 2, label: "M3x25 SSS", test: true, head: none, count: 2 }   # Nextruder socket set screw (headless)
   - bins:
+      - { units: 1, label: "6-32 PWR", test: {dia: 3.9, length: 8, head: button}, count: 7 }   # PSU power-terminal screw #6-32 UNC
       - { units: 2, label: M3x30, test: true, count: 15 }
       - { units: 2, label: M3x35, test: true, count: 8 }
       # PSU power terminal screws (imperial #6-32)
